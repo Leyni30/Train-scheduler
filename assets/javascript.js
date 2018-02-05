@@ -28,6 +28,8 @@ var config = {
 	 	destination = $("#destination-input").val().trim();
 		firstTrainTime = $("#first-input").val().trim();
 		frequency = $("#frequency-input").val().trim();
+
+		firstTrainTime = moment(moment(firstTrainTime, "hh:mm A").subtract(1, "years"),"hh:mm").format("hh:mm A");
   		
 
 		console.log(trainName);
@@ -51,22 +53,36 @@ var config = {
 		var frequency = childSnapshot.val().frequency;
 		var firstTrainTime = childSnapshot.val().firstTrainTime;
 
+		var currentTime = moment().format("HH:mm");
+
+
 
 		var nextArrival = null;
 		var minutesAway = null;
 
+		var diff = moment().diff(moment(firstTrainTime, "hh:mm A"), "m");
+		var modTime = diff % frequency;
+		var minutesAway = frequency - modTime;
 
+		console.log(minutesAway);
+
+		nextArrival = moment().add(minutesAway, "m");
+
+		var actualArrive = moment(nextArrival).format("hh:mm A");
 
 
 
 
 		var table = $("tbody");
 
+
+
+
 		table.append(`<tr>
 			<td>${trainName}</td>
 			<td>${destination}</td>
 			<td>${frequency}</td>
-			<td>${nextArrival}</td>
+			<td>${actualArrive}</td>
 			<td>${minutesAway}</td>
 			</tr>`)
 
