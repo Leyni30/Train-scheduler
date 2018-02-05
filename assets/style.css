@@ -1,0 +1,29 @@
+#pheading{
+	background-color:#D7CFB2 ;
+}
+
+#add-employee-btn{
+	background-color: #D7CFB2;
+	color: #403e35;
+
+}
+
+body {
+    background: transparent url("images/70060657-train-backgrounds-wallpapers.jpg") no-repeat 0 0;
+}
+
+.jumbotron{
+		background-color: transparent;
+		color:white;
+
+}
+#titleT{
+
+	font-family: Georgia;
+	text-shadow: #FC0 1px 0 10px; 
+	color:;
+
+}
+#title2 {
+	color: #403e35;
+}
